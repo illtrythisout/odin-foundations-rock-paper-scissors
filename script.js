@@ -6,7 +6,8 @@
 // ELSE IF the number is between 2 and 3, return 3 (3 will represent scissors)
 function computerChoice() {
     let randNum = Math.random();
-    randNum = randNum * 3
+    randNum = randNum * 3;
+    
     if (randNum < 1 && randNum >= 0) {
         return 1;
     } else if (randNum < 2 && randNum >= 1) {
@@ -15,15 +16,31 @@ function computerChoice() {
         return 3;
     }
 }
+
 // CREATE a function called playerChoice
 // ASK player for input with prompt()
 // STORE in variable playerChoiceVar
-// TURN playerChoice into all uppercase so it is case insensitive
-// IF playerChoice is ROCK then return 1
+// TURN playerChoiceVar into all uppercase so it is case insensitive
+// IF playerChoiceVar is ROCK then return 1
 // ELSE IF playerChoice is PAPER then return 2
 // ELSE IF playerChoice is SCISSORS then return 3
 // ELSE alert the player that they didn't write a correct input and should try again
     // RUN this same function if the else is run
+function playerChoice() {
+    let playerChoiceVar = prompt("Rock, Paper or Scissors?").toUpperCase();
+    
+    if (playerChoiceVar === "ROCK") {
+        return 1;
+    } else if (playerChoiceVar === "PAPER") {
+        return 2;
+    } else if (playerChoiceVar === "SCISSORS") {
+        return 3;
+    } else {
+        alert("Try writing either Rock, Paper or Scissors next time");
+        return playerChoice();
+    }
+}
+
 
 // DECLARE player's score values
 // CREATE variable humanScore and set to 0
