@@ -45,10 +45,10 @@ let computerScore = 0
 // IF playerChoice is equals computerChoice
     // RETURN "its a draw!"
 // ELSE IF (playerChoice is rock and computerChoice is paper) or (playerChoice is paper and computerChoice is scissors) or etc.
-    // RETURN "you lose, computerChoice beats playerChoice"
+    // RETURN "The computer chose computerChoice: computerChoice beats playerChoice, you lose"
     // INCREASE computerScore by 1
 // ELSE IF (playerChoice is rock and computerChoice is scissors) or (playerChoice is paper and computerChoice is rock) or etc.
-    // RETURN "you win, playerChoice beats computerChoice"
+    // RETURN "The computer chose computerChoice: playerChoice beats computerChoice, you win!"
     // INCREASE playerScore by 1
 function playRound(playerChoicePara, computerChoicePara) {
     if (playerChoicePara === 1 && computerChoicePara) {
