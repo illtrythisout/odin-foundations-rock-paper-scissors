@@ -4,7 +4,17 @@
 // IF the number is between 0 and 1, return 1 (1 will represent rock)
 // ELSE IF the number is between 1 and 2, return 2 (2 will represent paper)
 // ELSE IF the number is between 2 and 3, return 3 (3 will represent scissors)
-
+function computerChoice() {
+    let randNum = Math.random();
+    randNum = randNum * 3
+    if (randNum < 1 && randNum >= 0) {
+        return 1;
+    } else if (randNum < 2 && randNum >= 1) {
+        return 2;
+    } else {
+        return 3;
+    }
+}
 // CREATE a function called playerChoice
 // ASK player for input with prompt()
 // STORE in variable playerChoiceVar
