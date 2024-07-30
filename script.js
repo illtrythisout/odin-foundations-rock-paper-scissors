@@ -7,7 +7,7 @@
 function computerChoice() {
     let randNum = Math.random();
     randNum = randNum * 3;
-    
+
     if (randNum < 1 && randNum >= 0) {
         return 1;
     } else if (randNum < 2 && randNum >= 1) {
@@ -45,6 +45,8 @@ function playerChoice() {
 // DECLARE player's score values
 // CREATE variable humanScore and set to 0
 // CREATE variable computerScore and set to 0
+let humanScore = 0
+let computerScore = 0
 
 // CREATE function for single round logic called playRound with two parameters
 // SET parameters to computer and players choice
