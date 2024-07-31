@@ -50,32 +50,28 @@ let computerScore = 0
 // ELSE IF (playerChoice is rock and computerChoice is scissors) or (playerChoice is paper and computerChoice is rock) or etc.
     // RETURN "The computer chose computerChoice: playerChoice beats computerChoice, you win!"
     // INCREASE playerScore by 1
-
-console.log("Player: " + playerScore)
-console.log("Computer: " + computerScore)
-
-    function playRound(playerChoicePara, computerChoicePara) {
+function playRound(playerChoicePara, computerChoicePara) {
     if (playerChoicePara === computerChoicePara) {
-        return "The computer chose " + computerChoicePara + ": It's a tie, let's go again!";
+        return "The computer chose " + computerChoicePara + ":\nIt's a tie, let's go again!";
     } else if ((playerChoicePara === "ROCK" && computerChoicePara === "PAPER") || (playerChoicePara === "PAPER" && computerChoicePara === "SCISSORS") || (playerChoicePara === "SCISSORS" && computerChoicePara === "ROCK")) {
         computerScore++;
-        return "The computer chose " + computerChoicePara + ": " + computerChoicePara + " beats " + playerChoicePara + ", you lose :(";
+        return "The computer chose " + computerChoicePara + ":\n" + computerChoicePara + " beats " + playerChoicePara + ", you lose :(";
     } else if ((playerChoicePara === "PAPER" && computerChoicePara === "ROCK") || (playerChoicePara === "SCISSORS" && computerChoicePara === "PAPER") || (playerChoicePara === "ROCK" && computerChoicePara === "SCISSORS")) {
         playerScore++;
-        return "The computer chose " + computerChoicePara + ": " + playerChoicePara + " beats " + computerChoicePara + ", you win!";
+        return "The computer chose " + computerChoicePara + ":\n" + playerChoicePara + " beats " + computerChoicePara + ", you win!";
     }
 }
-
-console.log(playRound("ROCK", "PAPER"))
-console.log("Player: " + playerScore)
-console.log("Computer: " + computerScore)
-// CREATE function into variable finishGame called playGame
-// IF playerScore or computerScore is 5, return 1
-// ELSE return 0
 
 // CREATE a function called declareWinner
     // IF playerScore is greater than computerScore, return "you win!"
     // ELSE return "you lose"
+function declareWinner() {
+    if (playerScore > computerScore) {
+        return "You Win!\n \n" + "The score is:\n" + "Computer: " + computerScore + "\n Player: " + playerScore;
+    } else {
+        return "You Lose :(\n \n" + "The score is:\n" + "Computer: " + computerScore + "\n Player: " + playerScore;
+    }
+}
 
 // CREATE for statement, set its i=0, it's condition to be less than 5 and i to increase by one each repetition
     // RUN playRound function with playerChoice as parameter 1 and computerChoice as parameter 2
