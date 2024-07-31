@@ -67,13 +67,18 @@ function playRound(playerChoicePara, computerChoicePara) {
     // ELSE return "you lose"
 function declareWinner() {
     if (playerScore > computerScore) {
-        return "You Win!\n \n" + "The score is:\n" + "Computer: " + computerScore + "\n Player: " + playerScore;
+        return "You Win!\n \n" + "The score is:\n" + "Computer: " + computerScore + "\nPlayer: " + playerScore;
     } else {
-        return "You Lose :(\n \n" + "The score is:\n" + "Computer: " + computerScore + "\n Player: " + playerScore;
+        return "You Lose :(\n \n" + "The score is:\n" + "Computer: " + computerScore + "\nPlayer: " + playerScore;
     }
 }
 
-// CREATE for statement, set its i=0, it's condition to be less than 5 and i to increase by one each repetition
-    // RUN playRound function with playerChoice as parameter 1 and computerChoice as parameter 2
+// RUN game
 
-// RUN declareWinner in an alert
+console.log(playRound(playerChoice(), computerChoice()))
+console.log(playRound(playerChoice(), computerChoice()))
+console.log(playRound(playerChoice(), computerChoice()))
+console.log(playRound(playerChoice(), computerChoice()))
+console.log(playRound(playerChoice(), computerChoice()))
+
+console.log(declareWinner())
