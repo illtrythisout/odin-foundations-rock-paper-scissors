@@ -50,12 +50,25 @@ let computerScore = 0
 // ELSE IF (playerChoice is rock and computerChoice is scissors) or (playerChoice is paper and computerChoice is rock) or etc.
     // RETURN "The computer chose computerChoice: playerChoice beats computerChoice, you win!"
     // INCREASE playerScore by 1
-function playRound(playerChoicePara, computerChoicePara) {
-    if (playerChoicePara === 1 && computerChoicePara) {
-        return "It's a tie, let's go again!";
+
+console.log("Player: " + playerScore)
+console.log("Computer: " + computerScore)
+
+    function playRound(playerChoicePara, computerChoicePara) {
+    if (playerChoicePara === computerChoicePara) {
+        return "The computer chose " + computerChoicePara + ": It's a tie, let's go again!";
+    } else if ((playerChoicePara === "ROCK" && computerChoicePara === "PAPER") || (playerChoicePara === "PAPER" && computerChoicePara === "SCISSORS") || (playerChoicePara === "SCISSORS" && computerChoicePara === "ROCK")) {
+        computerScore++;
+        return "The computer chose " + computerChoicePara + ": " + computerChoicePara + " beats " + playerChoicePara + ", you lose :(";
+    } else if ((playerChoicePara === "PAPER" && computerChoicePara === "ROCK") || (playerChoicePara === "SCISSORS" && computerChoicePara === "PAPER") || (playerChoicePara === "ROCK" && computerChoicePara === "SCISSORS")) {
+        playerScore++;
+        return "The computer chose " + computerChoicePara + ": " + playerChoicePara + " beats " + computerChoicePara + ", you win!";
     }
 }
 
+console.log(playRound("ROCK", "PAPER"))
+console.log("Player: " + playerScore)
+console.log("Computer: " + computerScore)
 // CREATE function into variable finishGame called playGame
 // IF playerScore or computerScore is 5, return 1
 // ELSE return 0
@@ -64,7 +77,7 @@ function playRound(playerChoicePara, computerChoicePara) {
     // IF playerScore is greater than computerScore, return "you win!"
     // ELSE return "you lose"
 
-// CREATE for statement, set its variable to finishGame, it's condition to be less than 1
+// CREATE for statement, set its i=0, it's condition to be less than 5 and i to increase by one each repetition
     // RUN playRound function with playerChoice as parameter 1 and computerChoice as parameter 2
 
 // RUN declareWinner in an alert
