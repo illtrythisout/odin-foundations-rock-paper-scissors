@@ -39,7 +39,10 @@ const maxRounds = 5
 
 // RUN game
 
-const choiceSelector = document.querySelector("#choiceSelector")
+const choiceSelector = document.querySelector("#choiceSelector");
+const descriptionDiv = document.querySelector("#descriptionDiv");
+const playerScoreDiv = document.querySelector("#playerScore");
+const computerScoreDiv = document.querySelector("#computerScore");
 
 choiceSelector.addEventListener("click", (event) => {
     let target = event.target;
@@ -57,10 +60,13 @@ choiceSelector.addEventListener("click", (event) => {
             break;
     }
 
-    console.log(result);
+    descriptionDiv.textContent = result
     roundsPlayed++;
 
+    playerScoreDiv.textContent = "Player Score: " + playerScore
+    computerScoreDiv.textContent = "Computer Score: " + computerScore
+
     if (playerScore === 3 || computerScore === 3) {
-        console.log(declareWinner());
+        descriptionDiv.textContent = declareWinner();
     }
 });
