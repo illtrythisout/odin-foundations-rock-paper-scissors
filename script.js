@@ -1,9 +1,3 @@
-// CREATE a function called computerChoice that picks a random number between 0 and 1
-// STORE in variable randNum
-// MULTIPLY the number by three
-// IF the number is between 0 and 1, return ROCK
-// ELSE IF the number is between 1 and 2, return PAPER
-// ELSE IF the number is between 2 and 3, return SCISSORS
 function computerChoice() {
     let randNum = Math.random();
     randNum = randNum * 3;
@@ -17,39 +11,9 @@ function computerChoice() {
     }
 }
 
-// CREATE a function called playerChoice
-// ASK player for input with prompt()
-// STORE in variable playerChoiceVar
-// TURN playerChoiceVar into all uppercase so it is case insensitive
-// IF playerChoiceVar is rock paper or scissors, return playerChoiceVar
-// ELSE alert the player that they didn't write a correct input and should try again
-    // RUN this same function if the else is run
-function playerChoice() {
-    let playerChoiceVar = prompt("Rock, Paper or Scissors?").toUpperCase();
-    
-    if (playerChoiceVar === "ROCK" || playerChoiceVar === "PAPER" || playerChoiceVar === "SCISSORS") {
-        return playerChoiceVar;
-    } else {
-        alert("Try writing either Rock, Paper or Scissors next time");
-        return playerChoice();
-    }
-}
-
-// DECLARE player's score values
-// CREATE variable humanScore and set to 0
-// CREATE variable computerScore and set to 0
 let playerScore = 0
 let computerScore = 0
 
-// CREATE function for single round logic called playRound with two parameters
-// IF playerChoice is equals computerChoice
-    // RETURN "its a draw!"
-// ELSE IF (playerChoice is rock and computerChoice is paper) or (playerChoice is paper and computerChoice is scissors) or etc.
-    // RETURN "The computer chose computerChoice: computerChoice beats playerChoice, you lose"
-    // INCREASE computerScore by 1
-// ELSE IF (playerChoice is rock and computerChoice is scissors) or (playerChoice is paper and computerChoice is rock) or etc.
-    // RETURN "The computer chose computerChoice: playerChoice beats computerChoice, you win!"
-    // INCREASE playerScore by 1
 function playRound(playerChoicePara, computerChoicePara) {
     if (playerChoicePara === computerChoicePara) {
         return "The computer chose " + computerChoicePara + ":\nIt's a tie, let's go again!";
@@ -62,9 +26,6 @@ function playRound(playerChoicePara, computerChoicePara) {
     }
 }
 
-// CREATE a function called declareWinner
-    // IF playerScore is greater than computerScore, return "you win!"
-    // ELSE return "you lose"
 function declareWinner() {
     if (playerScore > computerScore) {
         return "You Win!\n \n" + "The score is:\n" + "Computer: " + computerScore + "\nPlayer: " + playerScore;
@@ -73,12 +34,33 @@ function declareWinner() {
     }
 }
 
+let roundsPlayed = 0
+const maxRounds = 5
+
 // RUN game
 
-console.log(playRound(playerChoice(), computerChoice()))
-console.log(playRound(playerChoice(), computerChoice()))
-console.log(playRound(playerChoice(), computerChoice()))
-console.log(playRound(playerChoice(), computerChoice()))
-console.log(playRound(playerChoice(), computerChoice()))
+const choiceSelector = document.querySelector("#choiceSelector")
 
-console.log(declareWinner())
+choiceSelector.addEventListener("click", (event) => {
+    let target = event.target;
+    let result
+
+    switch(target.id) {
+        case "rock":
+            result = playRound("ROCK", computerChoice());
+            break;
+        case "paper":
+            result = playRound("PAPER", computerChoice());
+            break;
+        case "scissors":
+            result = playRound("SCISSORS", computerChoice())
+            break;
+    }
+
+    console.log(result);
+    roundsPlayed++;
+
+    if (playerScore === 3 || computerScore === 3) {
+        console.log(declareWinner());
+    }
+});
